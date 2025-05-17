@@ -196,9 +196,16 @@ local Button = Tab:CreateButton({
 local Tab = Window:CreateTab("🎮 Games", nil)
 
 local Button = Tab:CreateButton({
-   Name = "Dead Rails",
+   Name = "Dead Rails | Ez Win",
    Callback = function()
-   loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34b20c9e914c2615f025a8cb6f434cb7.lua"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Dead Rails | Bonds",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHub/main/loader.lua"))()
    end,
 })
 
