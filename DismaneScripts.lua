@@ -8,7 +8,7 @@ Rayfield:Notify({
 })
 
 local Window = Rayfield:CreateWindow({
-   Name = "Dismane Scripts",
+   Name = "Dismane Scripts | Beta 1.0",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "Script Hub",
    LoadingSubtitle = "by DismaneScripts",
