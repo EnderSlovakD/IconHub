@@ -337,3 +337,10 @@ local Button = Tab:CreateButton({
       loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/refs/heads/main/UNCCheckEnv.lua"))()
     end,
  })
+
+local Button = Tab:CreateButton({
+    Name = "Porn Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
+    end,
+ })
