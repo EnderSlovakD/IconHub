@@ -8,7 +8,7 @@ Rayfield:Notify({
 })
 
 local Window = Rayfield:CreateWindow({
-   Name = "Dismane Scripts | Beta 1.0",
+   Name = "Dismane Scripts | Beta 1.1",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "Script Hub",
    LoadingSubtitle = "by DismaneScripts",
@@ -24,8 +24,8 @@ local Window = Rayfield:CreateWindow({
    },
 
    Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "fjrExmsRbr", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
 
@@ -48,7 +48,6 @@ Rayfield:Notify({
    Image = 0,
 })
 
--- 🏡 TAB
 local Tab = Window:CreateTab("🏡 Home", nil) -- Title, Image
 
 local Section = Tab:CreateSection("Movement")
@@ -192,7 +191,6 @@ local Button = Tab:CreateButton({
    end,
 })
 
--- 🎮 TAB
 local Tab = Window:CreateTab("🎮 Games", nil)
 
 local Button = Tab:CreateButton({
@@ -314,7 +312,6 @@ local Button = Tab:CreateButton({
    end,
 })
 
- -- 💼 TAB
  local Tab = Window:CreateTab("💼 Admin", nil) -- Title, Image
 
 local Button = Tab:CreateButton({
@@ -339,7 +336,7 @@ local Button = Tab:CreateButton({
  })
 
 local Button = Tab:CreateButton({
-    Name = "Porn Hub in Roblox",
+    Name = "🍆 🍑",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
     end,
