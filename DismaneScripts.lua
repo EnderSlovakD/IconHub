@@ -336,7 +336,7 @@ local Button = Tab:CreateButton({
  })
 
 local Button = Tab:CreateButton({
-    Name = "OwO Cances",
+    Name = "OwO Dances",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
     end,
