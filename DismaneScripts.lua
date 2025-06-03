@@ -25,7 +25,7 @@ local Window = Rayfield:CreateWindow({
 
    Discord = {
       Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "fjrExmsRbr", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      Invite = "H7fePKAqmS", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
 
@@ -336,7 +336,7 @@ local Button = Tab:CreateButton({
  })
 
 local Button = Tab:CreateButton({
-    Name = "🍆 🍑",
+    Name = "OwO Cances",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
     end,
