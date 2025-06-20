@@ -8,7 +8,7 @@ Rayfield:Notify({
 })
 
 local Window = Rayfield:CreateWindow({
-   Name = "Dismane Scripts | Beta 1.1",
+   Name = "Dismane Scripts | Beta 1.2",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "Script Hub",
    LoadingSubtitle = "by DismaneScripts",
@@ -210,14 +210,8 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
    Name = "Grow a Garden",
    Callback = function()
-      loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8f14c1806369f8ae3db39eafc954d76d.lua"))()
-   end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "Bubble Gum Simulator Infinity",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+      loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()
+"))()
    end,
 })
 
@@ -252,7 +246,7 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
    Name = "Murder Mystery 2",
    Callback = function()
-      loadstring(game:HttpGet('https://raw.githubusercontent.com/rblxscriptsdotnet/roblox-scripts/refs/heads/main/mm2adminpanelsource'))()
+      loadstring(game:HttpGet('loadstring(game:HttpGet("https://soluna-script.vercel.app/murder-mystery-2.lua",true))()'))()
    end,
 })
 
