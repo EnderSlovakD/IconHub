@@ -126,7 +126,7 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
    Name = "Credits",
    Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/EnderSlovakD/DismaneScripts/refs/heads/main/Credits.lua"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/EnderSlovakD/IconHub/refs/heads/main/Credits.lua"))()
    end,
 })
 local Tab = Window:CreateTab("🎮 Games", nil)
