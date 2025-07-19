@@ -1,38 +1,36 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 Rayfield:Notify({
-   Title = "You are Executing The Script",
-   Content = "Thanks for using Dismane Scripts",
-   Duration = 2.5,
-   Image = nil,
+   Title = "Executing Script",
+   Content = "The Icon Hub Is Executing",
+   Duration = 3,
+   Image = 4483362458,
 })
 
 local Window = Rayfield:CreateWindow({
-   Name = "Dismane Scripts | Beta 1.2",
+   Name = "Icon Hub",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "Script Hub",
-   LoadingSubtitle = "by DismaneScripts",
+   LoadingTitle = "Icon Hub",
+   LoadingSubtitle = "Last Updated 7/19/2025",
+   ShowText = "Icon Hub", -- for mobile users to unhide rayfield, change if you'd like
    Theme = "DarkBlue", -- Check https://docs.sirius.menu/rayfield/configuration/themes
-
+   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
    DisableRayfieldPrompts = false,
    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
-
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
+      FolderName = IconHub, -- Create a custom folder for your hub/game
+      FileName = "Settings"
    },
-
    Discord = {
-      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "H7fePKAqmS", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
-
    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
-      Title = "DismaneScripts | Key",
-      Subtitle = "Chceck Out Our Discord",
+      Title = "Icon Hub | KeySystem",
+      Subtitle = "Join our Discord to Obtain the key",
       Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
@@ -40,29 +38,22 @@ local Window = Rayfield:CreateWindow({
       Key = {"https://raw.githubusercontent.com/EnderSlovakD/DismaneScripts/refs/heads/main/KeySystem"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
-
 Rayfield:Notify({
-   Title = "You Succesfully Executed",
-   Content = "Your Executor Support The Script",
-   Duration = 3.5,
-   Image = 0,
+   Title = "Executed Script",
+   Content = "The Icon Hub is Succefully Executed",
+   Duration = 3,
+   Image = 4483362458,
 })
-
-local Tab = Window:CreateTab("🏡 Home", nil) -- Title, Image
-
+local Tab = Window:CreateTab("🏠 Home", nil) -- Title, Image
 local Section = Tab:CreateSection("Movement")
 local Toggle = Tab:CreateToggle({
-   Name = "Infinite Jump",
+   Name = "Infinite Jump (PC Only)",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
       _G.infinjump = not _G.infinjump
-
 if _G.infinJumpStarted == nil then
-	--Ensures this only runs once to save resources
 	_G.infinJumpStarted = true
-
-	--The actual infinite jump
 	local plr = game:GetService('Players').LocalPlayer
 	local m = plr:GetMouse()
 	m.KeyDown:connect(function(k)
@@ -78,38 +69,17 @@ if _G.infinJumpStarted == nil then
 end
    end,
 })
-
 local Button = Tab:CreateButton({
    Name = "Noclip",
    Callback = function()
-      local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-
-local function enableNoclip()
-    RunService.Stepped:Connect(function()
-        for _, part in pairs(character:GetDescendants()) do
-            if part:IsA("BasePart") then
-                part.CanCollide = false
-            end
-        end
-    end)
-end
-
-player.CharacterAdded:Connect(function(char)
-    character = char
-    enableNoclip()
-end)
-
-if character then
-    enableNoclip()
-end
-
+   Rayfield:Notify({
+   Title = "Icon Hub",
+   Content = "The Noclip isn't Working Right Now",
+   Duration = 5.5,
+   Image = 4483362458,
+})
    end,
 })
-
 local Slider = Tab:CreateSlider({
    Name = "WalkSpeed",
    Range = {16, 1000},
@@ -119,19 +89,11 @@ local Slider = Tab:CreateSlider({
    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(SValue)
       local Value = SValue
-
 local player = game.Players.LocalPlayer
-
--- Czekaj na Character i Humanoid
 if not player.Character or not player.Character:FindFirstChild("Humanoid") then
     player.CharacterAdded:Wait()
 end
-
--- Ustaw WalkSpeed
 player.Character:WaitForChild("Humanoid").WalkSpeed = Value
-
-   -- The function that takes place when the slider changes
-   -- The variable (Value) is a number which correlates to the value the slider is currently at
    end,
 })
 local Section = Tab:CreateSection("Executor")
@@ -143,7 +105,6 @@ Tab:CreateInput({
         userCode = Text
     end,
 })
-
 Tab:CreateButton({
     Name = "Execute",
     Callback = function()
@@ -155,183 +116,96 @@ Tab:CreateButton({
         end
     end
 })
-
 local Section = Tab:CreateSection("Others")
-
 local Button = Tab:CreateButton({
-   Name = "Un-Execute Dismane Scripts",
+   Name = "Un-Execute Icon Hub",
    Callback = function()
       Rayfield:Destroy()
    end,
 })
-
-local Button = Tab:CreateButton({
-    Name = "Supported Games",
-    Callback = function()
-        print("")
-        print("Dead Rails")
-        print("Grow a Garden")
-        print("Buble Gum Simulator Infinity")
-        print("Bed Wars")
-        print("Arsenal")
-        print("Dig It")
-        print("The Strongest Battle Ground")
-        print("Murder Mystery 2")
-        print("Rivals")
-        print("Blue Lock Rivals")
-        print("And Execute Your Own Script")
-        print("")
-    end,
- })
-
 local Button = Tab:CreateButton({
    Name = "Credits",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/EnderSlovakD/DismaneScripts/refs/heads/main/Credits.lua"))()
    end,
 })
-
 local Tab = Window:CreateTab("🎮 Games", nil)
-
 local Button = Tab:CreateButton({
    Name = "Dead Rails | Ez Win",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
    end,
 })
-
 local Button = Tab:CreateButton({
    Name = "Dead Rails | Bonds",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHub/main/loader.lua"))()
    end,
 })
-
 local Button = Tab:CreateButton({
    Name = "Grow a Garden",
    Callback = function()
-      loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()
-"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
    end,
 })
-
 local Button = Tab:CreateButton({
-   Name = "Bed Wars",
+   Name = "Ink Game",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/fqfqfqfqwgqghadfaffg/TeslHubCode/refs/heads/main/bob"))()
    end,
 })
-
-local Button = Tab:CreateButton({
-   Name = "Arsenal",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa-v2/refs/heads/main/Vapav2-Arsenal.lua", true))()
-   end,
-})
-
 local Button = Tab:CreateButton({
    Name = "Dig It",
    Callback = function()
       loadstring(game:HttpGet("https://raw.githubusercontent.com/alyssagithub/Scripts/refs/heads/main/FrostByte/Initiate.lua"))()
    end,
 })
-
-local Button = Tab:CreateButton({
-   Name = "The Strongest Battleground",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
-   end,
-})
-
 local Button = Tab:CreateButton({
    Name = "Murder Mystery 2",
    Callback = function()
       loadstring(game:HttpGet('loadstring(game:HttpGet("https://soluna-script.vercel.app/murder-mystery-2.lua",true))()'))()
    end,
 })
-
 local Button = Tab:CreateButton({
    Name = "Rivals (PC)",
    Callback = function()
       loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
    end,
 })
-
 local Button = Tab:CreateButton({
    Name = "Rivals Key System (Mobile)",
    Callback = function()
 	loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Duck-Hub-29794"))()
    end,
 })
-
 local Button = Tab:CreateButton({
-   Name = "Blue Lock Rivals",
+   Name = "Steal a Brainrot",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/game/refs/heads/main/TbaoHubBlueLockRivals"))()
+	loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))() 
    end,
 })
-
-local Button = Tab:CreateButton({
-    Name = "The Glass Bridge",
-    Callback = function()
-        loadstring(game:HttpGet('https://pastebin.com/raw/4kCTyxX4'))()
-    end,
- })
-
- local Button = Tab:CreateButton({
-    Name = "Blade Ball",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Avorrietz/Ghostobfuscate/refs/heads/main/SGC"))()
-    end,
- })
-
- local Button = Tab:CreateButton({
-    Name = "Blox Fruits",
-    Callback = function()
-        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b2db2af40b53ef0a502f6d561b4c6449.lua"))()
-    end,
- })
-
- local Button = Tab:CreateButton({
-    Name = "The Strongest Battlegrounds",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
-    end,
- })
-
-local Button = Tab:CreateButton({
-   Name = "BrookHaven",
-   Callback = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
-   end,
-})
-
  local Tab = Window:CreateTab("💼 Admin", nil) -- Title, Image
-
 local Button = Tab:CreateButton({
    Name = "Infinite Yield",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
    end,
 })
-
 local Button = Tab:CreateButton({
    Name = "Dex",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
    end,
 })
-
 local Button = Tab:CreateButton({
     Name = "UNC Test",
     Callback = function()
       loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/refs/heads/main/UNCCheckEnv.lua"))()
     end,
- })
-
+})
 local Button = Tab:CreateButton({
     Name = "OwO Dances",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
     end,
- })
+})
